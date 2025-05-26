@@ -1,0 +1,370 @@
+/* === GLOBAL RESET === */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", sans-serif;
+  background: linear-gradient(135deg, #0d0f1a, #1a1d2e);
+  height: 100vh;
+  color: #ffffff;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* === MAIN CONTAINER === */
+.todo-container {
+  width: 90%;
+  max-width: 1200px;
+  background: #1a1d2e;
+  padding: 30px;
+  border-radius: 24px;
+  box-shadow: 0 0 30px #00faff55, inset 0 0 20px #00faff22;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* === HEADER === */
+.todo-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.todo-header h1 {
+  font-size: 2rem;
+  color: #00faff;
+  text-shadow: 0 0 8px #00faff99;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, #00faff, #00555f);
+  box-shadow: 0 0 12px #00faff;
+  cursor: pointer;
+}
+
+/* === FORM INPUTS === */
+.todo-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.todo-form input,
+.todo-form select,
+.todo-form button {
+  padding: 12px 14px;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: none;
+  background: #24273b;
+  color: white;
+  flex: 1;
+  box-shadow: inset 0 0 8px #00faff33;
+  transition: all 0.3s ease;
+}
+
+.todo-form select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 20 20' fill='%23ffffffcc' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5 7l5 5 5-5H5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 14px;
+  cursor: pointer;
+}
+
+.todo-form button {
+  background: #00faff;
+  color: #000;
+  font-weight: bold;
+  flex: none;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.todo-form button:hover {
+  background: #00e2d2;
+}
+
+/* === SEARCH === */
+#searchInput {
+  padding: 12px;
+  border-radius: 10px;
+  background: #24273b;
+  color: white;
+  width: 100%;
+  border: none;
+  box-shadow: inset 0 0 6px #00faff44;
+}
+
+/* === TASK LIST === */
+.todo-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.todo-item {
+  background: #1c1f2f;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 0 25px #00faff33, inset 0 0 10px #00faff11;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: all 0.3s ease;
+}
+
+.todo-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 30px #00faff88;
+}
+
+.task-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task-name {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #00faff;
+  text-shadow: 0 0 8px #00faff99;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.countdown {
+  background: #1a1d2e;
+  padding: 8px 10px;
+  font-family: "Courier New", monospace;
+  font-size: 0.85rem;
+  color: #fff;
+  border-radius: 8px;
+  box-shadow: inset 0 0 10px #00faff22;
+  animation: glow 1.8s infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 5px #00faff55;
+  }
+  to {
+    text-shadow: 0 0 15px #00faffaa;
+  }
+}
+
+.task-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.task-actions button {
+  background: #1a1d2e;
+  color: #00faff;
+  border: 2px solid #00faff;
+  padding: 6px 12px;
+  border-radius: 10px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.task-actions button:hover {
+  background: #00faff;
+  color: #000;
+}
+
+/* === PROFILE MODAL === */
+.profile-modal,
+.checklist-popup {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.profile-content,
+.checklist-content {
+  background: #1a1d2e;
+  padding: 35px;
+  border-radius: 20px;
+  box-shadow: 0 0 40px #00faffaa;
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+}
+
+.profile-pic-wrapper {
+  position: relative;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid #00faff;
+  box-shadow: 0 0 20px #00faff77;
+  margin: 0 auto 20px;
+  cursor: pointer;
+}
+
+.profile-pic {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.edit-icon {
+  position: absolute;
+  bottom: -5px;
+  right: -5px;
+  background: #00faff;
+  color: #000;
+  padding: 6px;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #00faff;
+}
+
+.profile-text {
+  font-size: 1.2rem;
+  color: #fff;
+  margin-top: 10px;
+  text-shadow: 0 0 10px #00faff;
+}
+
+.logout-btn {
+  margin-top: 20px;
+  padding: 10px 25px;
+  background: #22263b;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  box-shadow: 0 0 12px #00faff99;
+  transition: all 0.3s ease;
+}
+
+.logout-btn:hover {
+  background: #00faff;
+  color: #000;
+}
+
+/* === CHECKLIST POPUP === */
+.checklist-content h3 {
+  font-size: 1.4rem;
+  color: #00faff;
+  margin-bottom: 20px;
+  text-shadow: 0 0 10px #00faff;
+}
+
+.checklist-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.checklist-buttons button {
+  padding: 12px 20px;
+  font-weight: bold;
+  border-radius: 12px;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px #00faff66;
+}
+
+.btn-done {
+  background: #00faff;
+  color: #000;
+}
+
+.btn-done:hover {
+  background: #00e2d2;
+  box-shadow: 0 0 25px #00faffaa;
+}
+
+.btn-delete {
+  background: transparent;
+  color: #00faff;
+  border: 2px solid #00faff;
+}
+
+.btn-delete:hover {
+  background: #00faff;
+  color: #000;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .todo-form {
+    flex-direction: column;
+  }
+
+  .todo-item {
+    width: 100%;
+  }
+
+  .profile-content,
+  .checklist-content {
+    width: 90%;
+  }
+}
+
+/* === EDIT PAGE === */
+.edit-container {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 2rem;
+  background: #1a1d2e;
+  border-radius: 16px;
+  box-shadow: 0 0 20px #00f2ff88;
+  color: white;
+}
+
+.edit-container input {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: none;
+  background: #333;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.button-group {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn.green {
+  background-color: #00f2ff;
+  color: black;
+}
+
+.btn.grey {
+  background-color: #666;
+  color: white;
+}
+
+.alert.error {
+  background: #ff4d4d;
+  padding: 1rem;
+  border-radius: 8px;
+  color: white;
+  margin-bottom: 1rem;
+}

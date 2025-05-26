@@ -1,0 +1,146 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body dengan background gelap gradasi */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(145deg, #1a1a1a, #2a2a2a);
+  background-size: cover;
+  color: #00faff;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* Container bergaya glassmorphism futuristik */
+.container {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 24px;
+  padding: 40px;
+  width: 100%;
+  max-width: 500px;
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  box-shadow: 0 0 40px rgba(0, 250, 255, 0.15),
+    0 0 80px rgba(199, 147, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Header */
+header h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #00faff;
+  margin-bottom: 10px;
+}
+
+.tagline {
+  font-size: 1rem;
+  color: #cccccc;
+  margin-bottom: 30px;
+}
+
+/* Form group */
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #00faff;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  font-size: 1rem;
+  transition: all 0.3s ease-in-out;
+  backdrop-filter: blur(8px);
+}
+
+input::placeholder {
+  color: #999999;
+}
+
+input:focus {
+  outline: none;
+  border-color: #00faff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Tombol futuristik dengan efek glow */
+.btn {
+  padding: 14px 20px;
+  border: none;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #00faff, #00ffee);
+  color: #000000;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 100%;
+  box-shadow: 0 0 12px #00faff, 0 0 24px rgba(0, 255, 255, 0.5);
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background: linear-gradient(135deg, #00ffee, #66fcf1);
+  box-shadow: 0 0 18px #00faff, 0 0 32px rgba(0, 255, 255, 0.8);
+}
+
+/* Alerts */
+.alert {
+  padding: 12px;
+  background-color: rgba(255, 100, 100, 0.1);
+  color: #ffbaba;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(255, 100, 100, 0.2);
+}
+
+.alert-success {
+  background-color: rgba(100, 255, 180, 0.1);
+  color: #baffc9;
+  border: 1px solid rgba(100, 255, 180, 0.2);
+}
+
+/* Checkbox */
+.form-check {
+  margin: 15px 0;
+  color: #cccccc;
+}
+
+input[type="checkbox"] {
+  accent-color: #00faff;
+}
+
+/* Footer */
+footer {
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: #00faff;
+  text-align: center;
+}
+
+a {
+  color: #00faff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
